@@ -7,6 +7,7 @@ import { calcPercent, clearAllStoredData } from '../utils/helper';
 
     const router = useRouter();
     const store = useQuizStore();
+    // separate these into separate refs
     const state = ref({
         isLoading: true,
         error: '',
@@ -58,6 +59,14 @@ import { calcPercent, clearAllStoredData } from '../utils/helper';
         // Return to previous view
         router.go(-1);
     } 
+
+// consider conditionals here to add to class
+ const resultPrecentageStyle = computed(()=> {
+  const classNames = ['text-3xl m-4 text-center font-bold lg:text-6xl']
+   if(state.percentage > 80)
+      classNames.push('text-emerald-500')
+   return classNames
+});
 
 </script>
 
